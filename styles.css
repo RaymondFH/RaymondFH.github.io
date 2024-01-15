@@ -1,17 +1,20 @@
 * {
     box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
   }
   
   body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    max-width: 1500px;
+    max-width: auto;
   }
 
-  h2 {
-   text-decoration: underline;
-   text-align: center;
+  hr.dark {
+    border: 1px solid black;
+  }
+
+  hr.light {
+    margin-right: 50%;
   }
   
   /* Style the side navigation */
@@ -25,6 +28,7 @@
     background-color: #111;
     overflow-x: hidden;
     text-align: center;  
+    color: white;
   }
   
   
@@ -41,25 +45,23 @@
     background-color: #ddd;
     color: black;
   }
+
   
   /* Style the content */
   .content {
     margin-left: 200px;
-    padding-left: 20px;
+    margin-right: 150px;
+    padding: 20px;
   }
 
-  .column {
-    float: left;
-    width: 33.33%;
-    margin: 20px;
+
+  /* style resume section blocks */
+  .block {
+    margin: 5px;
+    padding: 7px;
+    border-color: black;
   }
   
-  /* Clear floats after the columns */
-  .content:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
 
   /* Style side headings */
   .sidehead {
@@ -78,10 +80,4 @@
     border-radius: 75%;
   }
 
-  /* style resume section blocks */
-  .block {
-    margin: 5px;
-    padding: 7px;
-    background-color: rgb(239, 229, 216);
-    border-radius: 6%;
-  }
+ 
