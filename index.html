@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RaymondFH</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
+
 <body>
+
+<div id="page-container">
+  <div id="content-wrap">
+
+
+  <!-- Side navigation -->
+
   <div class="sidenav">
     <h1 class="sidehead">Raymond F. Housteau II</h1>
     <h3 class="sidehead">Youngstown, Ohio</h3>
@@ -21,7 +31,15 @@
    </div>
   
 <div class="content">
+
+ 
+<!-- resume -->
+
+
+  <details class="resume">
+  <summary>Resume</summary>
   
+
     
   <div class="block">
     <h2>Summary</h2>
@@ -31,6 +49,7 @@
 
   <div class="block">
     <h2>Experience</h2>
+    
     <hr class="dark">
     
     <h3>Communications Assistant</h3>
@@ -59,7 +78,7 @@
   
     
     <h3>Co-Owner/Website Developer</h3>
-    <p><strong>Diablo Conglomerate LLC</strong>, Jan 2016 - Dec 2018</p>
+    <p><strong>Diablo Conglomerate, LLC</strong>, Jan 2016 - Dec 2018</p>
       <p><a href="https://www.instagram.com/diabloconglomerate/" target="_blank">@DiabloConglomerate</a> was a fashion brand and media production company. We sold clothing and
       accessories, created media, and hosted fashion shows, community events, and pop-up shops.</p>
         <ul>
@@ -70,17 +89,17 @@
  
   </div>
     
-    <!-- Add similar sections for other experiences -->
 <div class="block">
     <h2>Education</h2>
     <hr class="dark">
     <p><strong>Berklee College of Music</strong>,<i> Apr 2019 - Dec 2021</i></p>
-    <p>Bachelor's Degree, Audio & Music Production</p>
+    <ul><li>Bachelor's Degree, Audio & Music Production</li></ul>
     
-    <hr class="light">
 
     <p><strong>Youngstown State University</strong>,<i> Aug 2014 - May 2016</i></p>
-    <p>Finance and Financial Management Services</p>
+    <ul>
+      <li>Finance and Financial Management Services</li>
+    </ul>
     
 </div>
 
@@ -106,11 +125,54 @@
       Shopify • 
       SEO • 
       Photoshop
-        <!-- Add other skills as needed -->
+        
     </p>
   </div>
+  <br>
+</details> 
 
+<!-- Projects -->
 
+<details class="projects">
+  <summary>Projects</summary>
+
+  <!-- Calculator -->
+  <h3>Simple Calculator</h3>
+
+  <div class="calculator">
+    <input id="display" readonly>
+    <div class="keys">
+        <button onclick="appendToDisplay('+')" id="operator-btn">+</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('-')" id="operator-btn">-</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('*')" id="operator-btn">*</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('/')" id="operator-btn">/</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="clearDisplay()" id="operator-btn">C</button>
+    </div>
+
+ </div>
   
+</details>
+
 </body>
+<script src="index.js"></script>
+
+</div>
+<footer id="footer">
+    <p>Raymond Housteau II<br>
+    <a href="mailto:rhousteauii@gmail.com">rhousteauii@gmail.com</a></p>
+    <br>
+  </footer>
+</div>
 </html>
