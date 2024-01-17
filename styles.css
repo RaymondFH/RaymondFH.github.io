@@ -13,6 +13,8 @@
   }
 
 
+
+
 /* hero section */
 
   .hero {
@@ -28,7 +30,7 @@
     align-items: center;
    
     /* Background styles */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1633907284646-7abf4a195875?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.1)), url('https://images.unsplash.com/photo-1614852207179-f21528f68aa0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -173,6 +175,10 @@
     list-style-position: outside;
     margin: -0.5em -0.5em 0 30px;
     padding: 0.5em;
+    cursor: pointer;
+    font-family: "Dosis", sans-serif;
+    font-weight: 500;
+    font-size: larger;
   }
   
   details[open] {
@@ -245,7 +251,9 @@
   .sidehead {
     color: white;
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Dosis", sans-serif;
+    font-weight: 400;
+    line-height: 95%;
   }
 
   /* style headshot */
