@@ -22,13 +22,15 @@
     margin: 2vh 5vh 5vh 5vh;
 
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 8%, rgba(225,220,220,1) 60%);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 8%, rgba(225, 220, 220, .8) 60%);
 
-    font-weight: 400;
+    font-weight: 300;
     font-size: x-large;
     text-align: center;
     color: #111;
+
+
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   }
 
 
