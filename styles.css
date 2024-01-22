@@ -17,7 +17,6 @@
   .about {
     padding: 30px;
     border-width: 1px;
-    border-style: solid;
     border-color: #aaa;
     border-radius: 20px;
     margin: 2vh 5vh 5vh 5vh;
@@ -166,7 +165,7 @@
 /* collapsible boxes */
 
   details {
-    border: 1px solid #aaa;
+    border: 1px solid #dfdfdf;
     border-radius: 4px;
     padding: 0.5em 0.5em 0;
     background-color: #ffffff;
@@ -206,7 +205,7 @@
   /* Style the side navigation */
   .sidenav {
     height: 100%;
-    width: 200px;
+    width: 10vw;
     position: absolute;
     z-index: 2;
     top: 0;
@@ -235,8 +234,8 @@
   
   /* Style the content */
   .content {
-    margin-left: 200px;
-    margin-right: 150px;
+    margin-left: 10vw;
+    margin-right: 10vw;
     padding: 20px;
     color: #111;
   }
@@ -261,8 +260,7 @@
 
   /* style headshot */
   .headshot {
-    width: 150px;
-    max-height: 150px;
+    width: 75%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -288,7 +286,6 @@
   font-style: italic;
   color: #656565;
 }
-
 
 
  
