@@ -31,7 +31,7 @@ body {
   }
   
   body {
-    background: #282A36;
+    background: #191F26;
     color:      #F8F8F2;
   }
   
@@ -42,14 +42,14 @@ body {
   }
   
   a, a:active, a:visited {
-    color: #8BE9FD;
+    color: #69a6e0;
     /* font-family: Menlo, Monaco, 'Courier New', monospace; */
     /* background-color: #1d2021; */
   }
   
   .site-title > a {
     text-decoration: none;
-    color: #69FF94;
+    color: #EFDDD3;
   }
   
   h1 {
@@ -67,7 +67,7 @@ body {
   
   h2 {
     font-size: 1.6rem;
-    color: #BD93F9;
+    color: #CF9185;
   
   }
   
@@ -76,11 +76,11 @@ body {
     /* color: #FF79C6; */
     /* font-family: Menlo, Monaco, 'Courier New', monospace; */
     margin-bottom: .25rem;
-    color: #BD93F9;
+    color: #CF9185;
   }
   
   blockquote {
-    border-left: 1px solid #BD93F9;
+    border-left: 1px solid #CF9185;
     margin: 20px 10px;
     padding: 0px 10px;
     /* color: #BD93F9; */
