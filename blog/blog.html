@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="/twittergrep/favicon.png" />
+	<title>cool guy site</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="raymond" />
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300"
+		rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="blog.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://yacine.ca/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+			<h1 class="site-title"><a href="">coolguy II</a></h1>
+			<div class="site-description">
+				<h3>Producer of Products in Many Mediums</h3>
+			
+				<nav class="nav social">
+					<ul class="flat"><a href="https://github.com/RaymondFH/" title="Github"><i data-feather="github"></i></a><a
+							href="https://twitter.com/yacineMTB" title="Twitter"><i data-feather="twitter"></i></a></ul>
+				</nav>
+			</div>
+
+			<nav class="nav">
+				<ul class="flat">
+					
+					<li>
+						<a href="/">home</a>
+					</li>
+					
+					<li>
+						<a href="https://raymondfh.github.io/">resume</a>
+					</li>
+					<li>
+						<a href="https://raymondfelixmusic.wordpress.com/">art</a>
+					</li>
+					
+				</ul>
+			</nav>
+		</div>
+		<div>
+
+			<div>
+
+				<div class="recent-posts section">
+				</div>
+				<div class="dot-plan section">
+					<h3 class="section-header">
+						posting posting posting
+					</h3>
+				<div class="meta subscribe-beg"> this section is for posting </div>
+					<div class="dotplanIsLoading" id="dotplanContainer">
+						<iframe id="dotplanFrame"
+							src="https://docs.google.com/document/d/e/2PACX-1vTeEvbIR4sQuuMYfQPtWDj6Nas_0fhwFy3Zw7IzMwuifP2X9uZSM8nCwccMzh6iG0UI1QgXgpBvzZd-/pub?embedded=true" max-width="100%" height="max">
+						</iframe>
+					</div>
+				</div>
+
+				<div class="recent-posts section">
+				</div>
+			</div>
+		</div>
+		<!-- content above here -->
+
+
+		<script>
+			feather.replace()
+
+			// START INJECTION PRANK
+			function removeSecretClass() {
+				// select all the div elements on the page
+				const divs = document.querySelectorAll('#secret');
+
+				// loop through each div and remove the "secret" class
+				divs.forEach(div => {
+					if (div.classList.contains('secret')) {
+						div.classList.remove('secret');
+					} else {
+						div.classList.add('secret');
+					}
+				});
+			}
+
+			// START GDOCS UNEMBEDDING SCRIPT
+			var iframes = document.getElementsByTagName("iframe");
+			for (let i = 0; i < iframes.length; i++) {
+				var url = iframes[i].getAttribute("src");
+				console.log({ url });
+				if (url.startsWith("https://docs.google.com/document/d/")) {
+					// create div and replace iframe
+					let d = document.createElement('div');
+					d.classList.add("embedded-doc"); // optional
+
+					// CORS request
+					var xhr = new XMLHttpRequest();
+					xhr.open('GET', url, true);
+					xhr.onload = function () {
+						// display response
+						// console.log(xhr.responseText);
+						d.innerHTML = xhr.responseText;
+
+						let scriptChildren = d.querySelectorAll('script');
+						scriptChildren.forEach(script => {
+							script.parentNode.removeChild(script);
+						});
+
+						let styleChildren = d.querySelectorAll('style');
+						styleChildren.forEach(style => {
+							const cssString = style.innerText;
+							const modifiedCss = cssString.replace(/\}/g, '}.embedded-doc ');
+							const lineSpacingFix = modifiedCss.replace(/\line-height/g, 'foo');
+							style.innerHTML = lineSpacingFix;
+						});
+
+						// Add max-width: 100% to all sub-elements of 'd'
+						let subElements = d.querySelectorAll('*');
+						subElements.forEach(element => {
+							element.style.maxWidth = '100%';
+							element.style.removeProperty('height');
+
+							if (element.tagName.toLowerCase() !== 'li') {
+								element.style.overflow = 'hidden';
+							}
+						});
+
+						iframes[i].parentElement.replaceChild(d, iframes[i]);
+
+						// Find the HTML element by its ID
+						const element = document.getElementById("dotplanContainer");
+
+						// Remove the class from the HTML element
+						element.classList.remove("dotplanIsLoading");
+					};
+					xhr.send();
+				}
+			}
+
+		</script>
+</body>
+
+</html>
