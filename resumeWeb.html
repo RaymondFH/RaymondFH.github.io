@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resumeWeb.css">
+    <title>Raymond Housteau II - Resume</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Raymond Housteau II</h1>
+            <h2>Frontend Engineer</h2>
+            <div class="contact-info">
+                <a href="mailto:rhousteauii@gmail.com">rhousteauii@gmail.com</a>
+                <a href="https://www.linkedin.com/in/rhousteauii">LinkedIn</a>
+                <a href="https://raymondfh.github.io/">Portfolio</a>
+            </div>
+        </header>
+        <section class="summary section">
+            <h3>Summary</h3>
+            <p>Helping others help themselves. Virtual vagabond. Using computers to level up since ‘99.</p>
+        </section>
+        <section class="experience section">
+            <h3>Experience</h3>
+            <ul>
+                <li>
+                    <h4>Multimedia Specialist | Various Clients</h4>
+                    <p>January 2017 - Present</p>
+                    <ul>
+                        <li>Website, blog, and e-commerce store creation and administration.</li>
+                        <li>Custom-built Wordpress/Shopify themes.</li>
+                        <li>Social media management, paid ads, SEO, and various other web-related contracts.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Audio Engineer | Various Clients</h4>
+                    <p>January 2018 - January 2023</p>
+                    <ul>
+                        <li>Live sound for various clients including O.A.R., Live Nation, Ilthy, RIPNDIP, Kent State University, The City of Elyria, and The City of Oberlin.</li>
+                        <li>Audio visual for corporate events</li>
+                        <li>Studio recording and mixing engineering</li>
+                        <li>Original music licensing</li>
+                        <li>Audio mixing/editing for podcast, film, and video</li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Communications Assistant | Catholic Charities Diocese of Youngstown</h4>
+                    <p>March 2023 - October 2023</p>
+                    <ul>
+                        <li>Creation and release of digital and print communications</li>
+                        <li>Marketing Strategy</li>
+                        <li>Paid advertising</li>
+                        <li>WordPress site administration</li>
+                        <li>SEO</li>
+                        <li>Constituent relationships and fundraising</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section class="education section">
+            <h3>Education</h3>
+            <ul>
+                <li>
+                    <h4>Berklee College of Music</h4>
+                    <p>Bachelor’s degree, Music & Audio Production | Aug 2019 – Dec 2021</p>
+                </li>
+                <li>
+                    <h4>Youngstown State University</h4>
+                    <p>Finance and Financial Management Services | Aug 2014 – May 2016</p>
+                </li>
+            </ul>
+        </section>
+        <section class="certifications section">
+            <h3>Certifications</h3>
+            <ul>
+                <li>Pro Tools Certified User (2020)</li>
+                <li>Raiser’s Edge NXT Professional Certification - Blackbaud (2023)</li>
+                <li>Front-End Engineer Professional Certification - CodeAcademy (2024)</li>
+                <li>SIE (2024)</li>
+            </ul>
+        </section>
+        <section class="skills section">
+            <h3>Skills</h3>
+            <ul>
+                <li>Financial Analysis</li>
+                <li>Budget Management</li>
+                <li>Data Analysis</li>
+                <li>Sales</li>
+                <li>Project Management</li>
+                <li>CRM Software</li>
+                <li>Social Media Marketing</li>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Search Engine Optimization (SEO)</li>
+                <li>E-Commerce</li>
+            </ul>
+        </section>
+    </div>
+    <script>
+        document.querySelectorAll('.section h3').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.style.display = content.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
