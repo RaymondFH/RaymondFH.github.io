@@ -86,21 +86,31 @@
 // icons
 feather.replace();
 
-// START INJECTION PRANK
-function removeSecretClass() {
-    const divs = document.querySelectorAll('.secret');
-    divs.forEach(div => {
-        div.classList.remove('secret');
+function processEmbeddedDoc(docElement) {
+    // Remove all script tags
+    docElement.querySelectorAll('script').forEach(script => script.remove());
+    
+    // Process style tags
+    docElement.querySelectorAll('style').forEach(style => {
+        let cssString = style.innerText;
+        // Scope all styles to the embedded-doc class
+        cssString = cssString.replace(/([^\r\n,{}]+)(,(?=[^}]*{)|\s*{)/g, '.embedded-doc $1$2');
+        style.innerHTML = cssString;
     });
-}
 
-// START GDOCS UNEMBEDDING SCRIPT
-function unembedGoogleDocs() {
-    const iframes = document.getElementsByTagName("iframe");
-    Array.from(iframes).forEach(iframe => {
-        const url = iframe.getAttribute("src");
-        if (url && url.startsWith("https://docs.google.com/document/d/")) {
-            fetchAndReplaceIframe(iframe, url);
+    // Add a class to the root element of the embedded doc
+    docElement.classList.add('embedded-doc-content');
+
+    // Adjust only necessary styles
+    docElement.querySelectorAll('*').forEach(element => {
+        // Ensure content doesn't overflow
+        element.style.maxWidth = '100%';
+        // Remove fixed height to allow content to expand
+        element.style.removeProperty('height');
+        // Ensure images scale properly
+        if (element.tagName.toLowerCase() === 'img') {
+            element.style.height = 'auto';
+            element.style.maxWidth = '100%';
         }
     });
 }
@@ -112,40 +122,24 @@ function fetchAndReplaceIframe(iframe, url) {
     fetch(url)
         .then(response => response.text())
         .then(html => {
-            d.innerHTML = html;
+            // Create a new div to hold the content
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            
+            // Extract the body content
+            const bodyContent = tempDiv.querySelector('body');
+            if (bodyContent) {
+                d.innerHTML = bodyContent.innerHTML;
+            } else {
+                d.innerHTML = html;
+            }
+            
             processEmbeddedDoc(d);
             iframe.parentElement.replaceChild(d, iframe);
             removeDotplanLoadingClass();
         })
         .catch(error => console.error('Error fetching Google Doc:', error));
 }
-
-function processEmbeddedDoc(docElement) {
-    docElement.querySelectorAll('script').forEach(script => script.remove());
-    
-    docElement.querySelectorAll('style').forEach(style => {
-        let cssString = style.innerText;
-        cssString = cssString.replace(/\}/g, '}.embedded-doc ');
-        cssString = cssString.replace(/\line-height/g, 'foo');
-        style.innerHTML = cssString;
-    });
-
-    docElement.querySelectorAll('*').forEach(element => {
-        element.style.maxWidth = '100%';
-        element.style.removeProperty('height');
-        if (element.tagName.toLowerCase() !== 'li') {
-            element.style.overflow = 'hidden';
-        }
-    });
-}
-
-function removeDotplanLoadingClass() {
-    const element = document.getElementById("dotplanContainer");
-    if (element) {
-        element.classList.remove("dotplanIsLoading");
-    }
-}
-
 function toggleDarkMode() {
     document.body.classList.toggle('light-mode');
     document.querySelectorAll('.embedded-doc').forEach(doc => {
