@@ -134,35 +134,47 @@ for (let i = 0; i < iframes.length; i++) {
             const element = document.getElementById("dotplanContainer");
             element.classList.remove("dotplanIsLoading");
 
+            injectStylesIntoDoc(d);
             updateEmbeddedDocStyles(d);
         };
         xhr.send();
     }
 }
 
+function injectStylesIntoDoc(doc) {
+    const styleElement = document.createElement('style');
+    styleElement.id = 'embedded-doc-styles';
+    document.head.appendChild(styleElement);
+    updateEmbeddedDocStyles(doc);
+}
+
 function updateEmbeddedDocStyles(doc) {
-    doc.style.backgroundColor = getComputedStyle(document.body).getPropertyValue('--background-color');
-    doc.style.color = getComputedStyle(document.body).getPropertyValue('--text-color');
+    const styleElement = document.getElementById('embedded-doc-styles');
+    const backgroundColor = getComputedStyle(document.body).getPropertyValue('--background-color');
+    const textColor = getComputedStyle(document.body).getPropertyValue('--text-color');
+    const linkColor = getComputedStyle(document.body).getPropertyValue('--link-color');
+    const titleColor = getComputedStyle(document.body).getPropertyValue('--title-color');
+    const headingColor = getComputedStyle(document.body).getPropertyValue('--heading-color');
+    const subtitleColor = getComputedStyle(document.body).getPropertyValue('--subtitle-color');
 
-    const links = doc.querySelectorAll('a');
-    links.forEach(link => {
-        link.style.color = getComputedStyle(document.body).getPropertyValue('--link-color');
-    });
-
-    const titles = doc.querySelectorAll('.site-title');
-    titles.forEach(title => {
-        title.style.color = getComputedStyle(document.body).getPropertyValue('--title-color');
-    });
-
-    const headings = doc.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    headings.forEach(heading => {
-        heading.style.color = getComputedStyle(document.body).getPropertyValue('--heading-color');
-    });
-
-    const subtitles = doc.querySelectorAll('.subtitle');
-    subtitles.forEach(subtitle => {
-        subtitle.style.color = getComputedStyle(document.body).getPropertyValue('--subtitle-color');
-    });
+    styleElement.innerHTML = `
+        .embedded-doc {
+            background-color: ${backgroundColor} !important;
+            color: ${textColor} !important;
+        }
+        .embedded-doc a {
+            color: ${linkColor} !important;
+        }
+        .embedded-doc .site-title {
+            color: ${titleColor} !important;
+        }
+        .embedded-doc h1, .embedded-doc h2, .embedded-doc h3, .embedded-doc h4, .embedded-doc h5, .embedded-doc h6 {
+            color: ${headingColor} !important;
+        }
+        .embedded-doc .subtitle {
+            color: ${subtitleColor} !important;
+        }
+    `;
 }
 
 document.getElementById('toggle-button').addEventListener('click', function() {
@@ -173,8 +185,6 @@ document.getElementById('toggle-button').addEventListener('click', function() {
         updateEmbeddedDocStyles(doc);
     });
 });
-
-
 		</script>
 </body>
 
