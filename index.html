@@ -1,250 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<link rel="icon" href="/twittergrep/favicon.png" />
-	<title>cool guy site</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:title" content="raymond" />
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300"
-		rel="stylesheet">
-	<link rel="icon" type="image/x-icon" href="resources/coolguy.png">
-	<link rel="stylesheet" type="text/css" media="screen" href="blog.css" />
-
-	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-	<style>
-        /* Define the base (dark) mode color scheme using :root */
-        :root {
-            --background-color: #191F26;
-            --text-color: #F8F8F2;
-            --link-color: #69a6e0;
-            --title-color: #EFDDD3;
-            --heading-color: #CF9185;
-            --subtitle-color: #9099b6;
-        }
-
-        /* Define the light mode color scheme */
-        .light-mode {
-            --background-color: #F8F8F2;
-            --text-color: #191F26;
-            --link-color: #005B96;
-            --title-color: #4C3B30;
-            --heading-color: #5A2C2A;
-            --subtitle-color: #626B8C;
-        }
-
-        /* Apply the color scheme to the body */
-        body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Apply the color scheme to links */
-        a {
-            color: var(--link-color);
-        }
-
-        /* Apply the color scheme to the site title */
-        .site-title {
-            color: var(--title-color);
-        }
-
-        /* Apply the color scheme to headings */
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--heading-color);
-        }
-
-        /* Apply the color scheme to subtitles */
-        .subtitle {
-            color: var(--subtitle-color);
-        }
-
-        /* Apply the color scheme to the embedded-doc class */
-        .embedded-doc {
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
-
-        /* Other styles */
-        .secret {
-            display: none;
-        }
-    </style>
+    <meta charset="utf-8">
+    <title>cool guy site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="raymond">
+    <link rel="icon" type="image/x-icon" href="resources/coolguy.png">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="blog.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
 
 <body>
-	<div class="container wrapper">
-		<div class="header">
-			<h1 class="site-title"><a href="">coolguy II</a></h1>
-			<div class="site-description">
-				<h3>Producer of Products in Multiple Mediums</h3>
-			
-				<nav class="nav social">
-					<ul class="flat"><a href="https://github.com/RaymondFH/" title="Github"><i data-feather="github"></i></a><a
-							href="https://x.com/coolguy_ii" title="Twitter"><i data-feather="twitter"></i></a></ul>
-				</nav>
-			</div>
-
-			<nav class="nav">
-				<ul class="flat">
-					
-					<li class="meta subscribe-beg">
-						<a href="resume.html">resume</a> 
-					</li>
-					
-					<li>
-						<a href="easyWeb/index.html">css tester</a>
-					</li>
-
-					<li>
-						<a href="flappyCool/flappy.html">gamers click here</a>
-					</li>
-
-					<li>
-						
-					</li>
-					
-				</ul>
+    <div class="container wrapper">
+        <div class="header">
+            <h1 class="site-title"><a href="#">coolguy II</a></h1>
+            <div class="site-description">
+                <h3>Producer of Products in Multiple Mediums</h3>
+                <nav class="nav social">
+                    <ul class="flat">
+                        <li><a href="https://github.com/RaymondFH/" title="Github"><i data-feather="github"></i></a></li>
+                        <li><a href="https://x.com/coolguy_ii" title="Twitter"><i data-feather="twitter"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <nav class="nav">
+                <ul class="flat">
+                    <li class="meta subscribe-beg"><a href="resume.html">resume</a></li>
+                    <li><a href="easyWeb/index.html">css tester</a></li>
+                    <li><a href="flappyCool/flappy.html">gamers click here</a></li>
+                </ul>
 				<br>
-				<button class="toggle-button" id="toggle-button">
-					<span class="new">Light</span>
-					<span class="old">Dark</span>
-				</button>
-			</nav>
-		</div>
-		<div>
+                <button class="toggle-button" id="toggle-button">
+                    <span class="new">Light</span>
+                    <span class="old">Dark</span>
+                </button>
+            </nav>
+        </div>
+        <div class="recent-posts section">
+            <h3 class="section-header">Recent Posts</h3>
+            <div class="meta subscribe-beg">This section is for posting thoughts and updates without much care for organization or neatness.</div>
+            <div class="dotplanIsLoading" id="dotplanContainer">
+                <iframe id="dotplanFrame"
+                    src="https://docs.google.com/document/d/e/2PACX-1vTeEvbIR4sQuuMYfQPtWDj6Nas_0fhwFy3Zw7IzMwuifP2X9uZSM8nCwccMzh6iG0UI1QgXgpBvzZd-/pub?embedded=true"
+                    style="width: 100%; height: auto;"></iframe>
+            </div>
+        </div>
+    </div>
 
-			<div>
+    <script>
+        feather.replace();
 
-				<div class="recent-posts section">
-				</div>
-				<div class="dot-plan section">
-					<h3 class="section-header">
-						recent posts
-					</h3>
-				<div class="meta subscribe-beg"> this section is for posting thoughts and updates without much care for organization or neatness. 
-				</div>
-					<div class="dotplanIsLoading" id="dotplanContainer">
-						<iframe id="dotplanFrame"
-							src="https://docs.google.com/document/d/e/2PACX-1vTeEvbIR4sQuuMYfQPtWDj6Nas_0fhwFy3Zw7IzMwuifP2X9uZSM8nCwccMzh6iG0UI1QgXgpBvzZd-/pub?embedded=true" max-width="100%" height="max">
-						</iframe>
-					</div>
-				</div>
-
-				<div class="recent-posts section">
-				</div>
-			</div>
-		</div>
-		<!-- content above here -->
-
-
-		<script>
-feather.replace();
-
-// START INJECTION PRANK
-function removeSecretClass() {
-    const divs = document.querySelectorAll('#secret');
-    divs.forEach(div => {
-        div.classList.toggle('secret');
-    });
-}
-
-// START GDOCS UNEMBEDDING SCRIPT
-var iframes = document.getElementsByTagName("iframe");
-for (let i = 0; i < iframes.length; i++) {
-    var url = iframes[i].getAttribute("src");
-    console.log({ url });
-    if (url.startsWith("https://docs.google.com/document/d/")) {
-        let d = document.createElement('div');
-        d.classList.add("embedded-doc");
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.onload = function () {
-            d.innerHTML = xhr.responseText;
-
-            let scriptChildren = d.querySelectorAll('script');
-            scriptChildren.forEach(script => {
-                script.parentNode.removeChild(script);
+        // START INJECTION PRANK
+        function removeSecretClass() {
+            const divs = document.querySelectorAll('#secret');
+            divs.forEach(div => {
+                div.classList.toggle('secret');
             });
+        }
 
-            let styleChildren = d.querySelectorAll('style');
-            styleChildren.forEach(style => {
-                const cssString = style.innerText;
-                const modifiedCss = cssString.replace(/\}/g, '}.embedded-doc ');
-                const lineSpacingFix = modifiedCss.replace(/\line-height/g, 'foo');
-                style.innerHTML = lineSpacingFix;
-            });
+        // START GDOCS UNEMBEDDING SCRIPT
+        var iframes = document.getElementsByTagName("iframe");
+        for (let i = 0; i < iframes.length; i++) {
+            var url = iframes[i].getAttribute("src");
+            console.log({ url });
+            if (url.startsWith("https://docs.google.com/document/d/")) {
+                let d = document.createElement('div');
+                d.classList.add("embedded-doc");
 
-            let subElements = d.querySelectorAll('*');
-            subElements.forEach(element => {
-                element.style.maxWidth = '100%';
-                element.style.removeProperty('height');
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', url, true);
+                xhr.onload = function () {
+                    d.innerHTML = xhr.responseText;
 
-                if (element.tagName.toLowerCase() !== 'li') {
-                    element.style.overflow = 'hidden';
+                    let scriptChildren = d.querySelectorAll('script');
+                    scriptChildren.forEach(script => {
+                        script.parentNode.removeChild(script);
+                    });
+
+                    let styleChildren = d.querySelectorAll('style');
+                    styleChildren.forEach(style => {
+                        const cssString = style.innerText;
+                        const modifiedCss = cssString.replace(/\}/g, '}.embedded-doc ');
+                        const lineSpacingFix = modifiedCss.replace(/\line-height/g, 'foo');
+                        style.innerHTML = lineSpacingFix;
+                    });
+
+                    let subElements = d.querySelectorAll('*');
+                    subElements.forEach(element => {
+                        element.style.maxWidth = '100%';
+                        element.style.removeProperty('height');
+
+                        if (element.tagName.toLowerCase() !== 'li') {
+                            element.style.overflow = 'hidden';
+                        }
+                    });
+
+                    iframes[i].parentElement.replaceChild(d, iframes[i]);
+
+                    const element = document.getElementById("dotplanContainer");
+                    element.classList.remove("dotplanIsLoading");
+
+                    injectStylesIntoDoc(d);
+                    updateEmbeddedDocStyles(d);
+                };
+                xhr.send();
+            }
+        }
+
+        function injectStylesIntoDoc(doc) {
+            const styleElement = document.createElement('style');
+            styleElement.id = 'embedded-doc-styles';
+            doc.appendChild(styleElement);
+            updateEmbeddedDocStyles(doc);
+        }
+
+        function updateEmbeddedDocStyles(doc) {
+            const styleElement = doc.querySelector('#embedded-doc-styles');
+            const backgroundColor = getComputedStyle(document.body).getPropertyValue('--body-bg');
+            const textColor = getComputedStyle(document.body).getPropertyValue('--body-color');
+            const linkColor = getComputedStyle(document.body).getPropertyValue('--link-color');
+            const titleColor = getComputedStyle(document.body).getPropertyValue('--site-title-color');
+            const headingColor = getComputedStyle(document.body).getPropertyValue('--heading-color');
+            const subtitleColor = getComputedStyle(document.body).getPropertyValue('--subtitle-color');
+
+            styleElement.innerHTML = `
+                .embedded-doc {
+                    background-color: ${backgroundColor} !important;
+                    color: ${textColor} !important;
                 }
+                .embedded-doc a {
+                    color: ${linkColor} !important;
+                }
+                .embedded-doc .site-title {
+                    color: ${titleColor} !important;
+                }
+                .embedded-doc h1, .embedded-doc h2, .embedded-doc h3, .embedded-doc h4, .embedded-doc h5 {
+                    color: ${headingColor} !important;
+                }
+                .embedded-doc .subtitle {
+                    color: ${subtitleColor} !important;
+                }
+            `;
+        }
+
+        document.getElementById('toggle-button').addEventListener('click', function () {
+            document.body.classList.toggle('light-mode');
+
+            const embeddedDocs = document.querySelectorAll('.embedded-doc');
+            embeddedDocs.forEach(doc => {
+                updateEmbeddedDocStyles(doc);
             });
-
-            iframes[i].parentElement.replaceChild(d, iframes[i]);
-
-            const element = document.getElementById("dotplanContainer");
-            element.classList.remove("dotplanIsLoading");
-
-            injectStylesIntoDoc(d);
-            updateEmbeddedDocStyles(d);
-        };
-        xhr.send();
-    }
-}
-
-function injectStylesIntoDoc(doc) {
-    const styleElement = document.createElement('style');
-    styleElement.id = 'embedded-doc-styles';
-    document.head.appendChild(styleElement);
-    updateEmbeddedDocStyles(doc);
-}
-
-function updateEmbeddedDocStyles(doc) {
-    const styleElement = document.getElementById('embedded-doc-styles');
-    const backgroundColor = getComputedStyle(document.body).getPropertyValue('--background-color');
-    const textColor = getComputedStyle(document.body).getPropertyValue('--text-color');
-    const linkColor = getComputedStyle(document.body).getPropertyValue('--link-color');
-    const titleColor = getComputedStyle(document.body).getPropertyValue('--title-color');
-    const headingColor = getComputedStyle(document.body).getPropertyValue('--heading-color');
-    const subtitleColor = getComputedStyle(document.body).getPropertyValue('--subtitle-color');
-
-    styleElement.innerHTML = `
-        .embedded-doc {
-            background-color: ${backgroundColor} !important;
-            color: ${textColor} !important;
-        }
-        .embedded-doc a {
-            color: ${linkColor} !important;
-        }
-        .embedded-doc .site-title {
-            color: ${titleColor} !important;
-        }
-        .embedded-doc h1, .embedded-doc h2, .embedded-doc h3, .embedded-doc h4, .embedded-doc h5, .embedded-doc h6 {
-            color: ${headingColor} !important;
-        }
-        .embedded-doc .subtitle {
-            color: ${subtitleColor} !important;
-        }
-    `;
-}
-
-document.getElementById('toggle-button').addEventListener('click', function() {
-    document.body.classList.toggle('light-mode');
-
-    const embeddedDocs = document.querySelectorAll('.embedded-doc');
-    embeddedDocs.forEach(doc => {
-        updateEmbeddedDocStyles(doc);
-    });
-});
-		</script>
+        });
+    </script>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+/* Base styles */
 body {
   font-family: Roboto, sans-serif;
   font-size: 1rem;
@@ -7,9 +8,11 @@ body {
   margin: auto;
   background-color: var(--body-bg);
   color: var(--body-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-body .embedded-doc .doc-content {
+/* Embedded document styles */
+.embedded-doc .doc-content {
   margin-top: 1rem;
   margin-right: 0px;
   max-width: 100%;
@@ -44,21 +47,18 @@ a, a:active, a:visited {
   color: var(--site-title-color);
 }
 
+h1, h2, h3, h4, h5 {
+  margin-bottom: .25rem;
+  color: var(--heading-color);
+}
+
 h1 {
   font-size: 2rem;
-  margin-bottom: 0.25rem;
   margin-top: 0rem;
-  color: var(--heading-color);
 }
 
 h2 {
   font-size: 1.6rem;
-  color: var(--heading-color);
-}
-
-h3, h4, h5 {
-  margin-bottom: .25rem;
-  color: var(--heading-color);
 }
 
 blockquote {
@@ -72,23 +72,14 @@ blockquote {
   color: #a8b2cf;
 }
 
-ul.flat {
+ul.flat, .header nav ul.flat {
   margin: 0;
   padding: 0;
 }
 
-ul.flat li {
+ul.flat li, .header nav ul.flat li {
   display: inline-block;
   list-style: none;
-  margin-left: 0;
-}
-
-.header nav ul.flat {
-  padding: 0;
-}
-
-.header nav ul.flat li {
-  display: inline-block;
   margin-left: 0;
   margin-right: 10px;
   margin-top: 10px;
@@ -156,13 +147,9 @@ img {
   height: 100%;
 }
 
-color-palatte {
-  color: #282A36;
-}
-
 .embedded-doc {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--body-bg);
+  color: var(--body-color);
 }
 
 /* Define CSS variables for dark mode */
@@ -185,68 +172,39 @@ body.light-mode {
   --subtitle-color: #626B8C;
 }
 
-
-/* dark/light button */
-.toggle-button,
-.toggle-button *,
-.toggle-button :after,
-.toggle-button :before,
-.toggle-button:after,
-.toggle-button:before {
-  border: 0 solid;
-  box-sizing: border-box;
-  border-radius: 15%;
-}
+/* Toggle button */
 .toggle-button {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
   background-color: #F8F8F2;
-  background-image: none;
   color: #191F26;
   cursor: pointer;
-  
   font-size: 100%;
   line-height: 1.5;
-  margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-  padding: 0;
-}
-.toggle-button:disabled {
-  cursor: default;
-}
-.toggle-button:-moz-focusring {
-  outline: auto;
-}
-.toggle-button svg {
-  display: block;
-  vertical-align: middle;
-}
-.toggle-button [hidden] {
-  display: none;
-}
-.toggle-button {
-  border: 1px solid;
-  box-sizing: border-box;
-  display: block;
-  font-weight: 900;
-  overflow: hidden;
   padding: 1rem 2.5rem;
-  position: relative;
   text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 15%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  font-weight: 900;
 }
+
 .toggle-button .new,
 .toggle-button .old {
   transition: transform 0.2s;
 }
+
 .toggle-button .old {
   display: grid;
   inset: 0;
   place-content: center;
   position: absolute;
 }
+
 .toggle-button:hover .old {
   transform: translateY(100%);
 }
+
 .toggle-button .new {
   background: #191F26;
   color: #F8F8F2;
@@ -257,6 +215,7 @@ body.light-mode {
   position: absolute;
   transform: translateX(-100%);
 }
+
 .toggle-button:hover .new {
   transform: translateX(0);
 }
