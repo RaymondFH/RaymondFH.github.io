@@ -82,7 +82,7 @@
 
 
 		<script>
-			feather.replace();
+feather.replace();
 
 // START INJECTION PRANK
 function removeSecretClass() {
@@ -138,13 +138,37 @@ for (let i = 0; i < iframes.length; i++) {
     }
 }
 
-document.getElementById('toggle-button').addEventListener('click', function() {
-    document.body.classList.toggle('light-mode');
-
+function updateEmbeddedDocsColors() {
     const embeddedDocs = document.querySelectorAll('.embedded-doc');
     embeddedDocs.forEach(doc => {
-        doc.classList.toggle('light-mode');
+        doc.style.backgroundColor = getComputedStyle(document.body).getPropertyValue('--background-color');
+        doc.style.color = getComputedStyle(document.body).getPropertyValue('--text-color');
+
+        const links = doc.querySelectorAll('a');
+        links.forEach(link => {
+            link.style.color = getComputedStyle(document.body).getPropertyValue('--link-color');
+        });
+
+        const titles = doc.querySelectorAll('.site-title');
+        titles.forEach(title => {
+            title.style.color = getComputedStyle(document.body).getPropertyValue('--title-color');
+        });
+
+        const headings = doc.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        headings.forEach(heading => {
+            heading.style.color = getComputedStyle(document.body).getPropertyValue('--heading-color');
+        });
+
+        const subtitles = doc.querySelectorAll('.subtitle');
+        subtitles.forEach(subtitle => {
+            subtitle.style.color = getComputedStyle(document.body).getPropertyValue('--subtitle-color');
+        });
     });
+}
+
+document.getElementById('toggle-button').addEventListener('click', function() {
+    document.body.classList.toggle('light-mode');
+    updateEmbeddedDocsColors();
 });
 
 		</script>
