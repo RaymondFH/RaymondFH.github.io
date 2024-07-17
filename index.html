@@ -83,69 +83,80 @@
 
 
 		<script>
+// icons
 feather.replace();
 
 // START INJECTION PRANK
 function removeSecretClass() {
-    const divs = document.querySelectorAll('#secret');
+    const divs = document.querySelectorAll('.secret');
     divs.forEach(div => {
-        div.classList.toggle('secret');
+        div.classList.remove('secret');
     });
 }
 
 // START GDOCS UNEMBEDDING SCRIPT
-var iframes = document.getElementsByTagName("iframe");
-for (let i = 0; i < iframes.length; i++) {
-    var url = iframes[i].getAttribute("src");
-    console.log({ url });
-    if (url.startsWith("https://docs.google.com/document/d/")) {
-        let d = document.createElement('div');
-        d.classList.add("embedded-doc");
+function unembedGoogleDocs() {
+    const iframes = document.getElementsByTagName("iframe");
+    Array.from(iframes).forEach(iframe => {
+        const url = iframe.getAttribute("src");
+        if (url && url.startsWith("https://docs.google.com/document/d/")) {
+            fetchAndReplaceIframe(iframe, url);
+        }
+    });
+}
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.onload = function () {
-            d.innerHTML = xhr.responseText;
+function fetchAndReplaceIframe(iframe, url) {
+    const d = document.createElement('div');
+    d.classList.add("embedded-doc");
 
-            let scriptChildren = d.querySelectorAll('script');
-            scriptChildren.forEach(script => {
-                script.parentNode.removeChild(script);
-            });
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            d.innerHTML = html;
+            processEmbeddedDoc(d);
+            iframe.parentElement.replaceChild(d, iframe);
+            removeDotplanLoadingClass();
+        })
+        .catch(error => console.error('Error fetching Google Doc:', error));
+}
 
-            let styleChildren = d.querySelectorAll('style');
-            styleChildren.forEach(style => {
-                const cssString = style.innerText;
-                const modifiedCss = cssString.replace(/\}/g, '}.embedded-doc ');
-                const lineSpacingFix = modifiedCss.replace(/\line-height/g, 'foo');
-                style.innerHTML = lineSpacingFix;
-            });
+function processEmbeddedDoc(docElement) {
+    docElement.querySelectorAll('script').forEach(script => script.remove());
+    
+    docElement.querySelectorAll('style').forEach(style => {
+        let cssString = style.innerText;
+        cssString = cssString.replace(/\}/g, '}.embedded-doc ');
+        cssString = cssString.replace(/\line-height/g, 'foo');
+        style.innerHTML = cssString;
+    });
 
-            let subElements = d.querySelectorAll('*');
-            subElements.forEach(element => {
-                element.style.maxWidth = '100%';
-                element.style.removeProperty('height');
+    docElement.querySelectorAll('*').forEach(element => {
+        element.style.maxWidth = '100%';
+        element.style.removeProperty('height');
+        if (element.tagName.toLowerCase() !== 'li') {
+            element.style.overflow = 'hidden';
+        }
+    });
+}
 
-                if (element.tagName.toLowerCase() !== 'li') {
-                    element.style.overflow = 'hidden';
-                }
-            });
-
-            iframes[i].parentElement.replaceChild(d, iframes[i]);
-
-            const element = document.getElementById("dotplanContainer");
-            element.classList.remove("dotplanIsLoading");
-        };
-        xhr.send();
+function removeDotplanLoadingClass() {
+    const element = document.getElementById("dotplanContainer");
+    if (element) {
+        element.classList.remove("dotplanIsLoading");
     }
 }
 
-document.getElementById('toggle-button').addEventListener('click', function() {
+function toggleDarkMode() {
     document.body.classList.toggle('light-mode');
-
-    const embeddedDocs = document.querySelectorAll('.embedded-doc');
-    embeddedDocs.forEach(doc => {
+    document.querySelectorAll('.embedded-doc').forEach(doc => {
         doc.classList.toggle('light-mode');
     });
+}
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', () => {
+    unembedGoogleDocs();
+    document.getElementById('toggle-button')?.addEventListener('click', toggleDarkMode);
 });
 
 		</script>
