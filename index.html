@@ -83,7 +83,7 @@
 
 
 		<script>
-// icons
+// Feather Icons
 feather.replace();
 
 // START INJECTION PRANK
@@ -116,6 +116,7 @@ function fetchAndReplaceIframe(iframe, url) {
             processEmbeddedDoc(d);
             iframe.parentElement.replaceChild(d, iframe);
             removeDotplanLoadingClass();
+            applyCurrentTheme(d);
         })
         .catch(error => console.error('Error fetching Google Doc:', error));
 }
@@ -148,17 +149,47 @@ function removeDotplanLoadingClass() {
 
 function toggleDarkMode() {
     document.body.classList.toggle('light-mode');
-    document.querySelectorAll('.embedded-doc').forEach(doc => {
-        doc.classList.toggle('light-mode');
-    });
+    applyCurrentTheme(document.body);
 }
+
+function applyCurrentTheme(element) {
+    const isLightMode = document.body.classList.contains('light-mode');
+    const themeVars = isLightMode ? lightModeVars : darkModeVars;
+    
+    Object.entries(themeVars).forEach(([property, value]) => {
+        element.style.setProperty(property, value);
+    });
+
+    if (element.classList.contains('embedded-doc')) {
+        element.querySelectorAll('*').forEach(child => {
+            applyCurrentTheme(child);
+        });
+    }
+}
+
+const darkModeVars = {
+    '--body-bg': '#191F26',
+    '--body-color': '#F8F8F2',
+    '--link-color': '#69a6e0',
+    '--site-title-color': '#EFDDD3',
+    '--heading-color': '#CF9185',
+    '--subtitle-color': '#9099b6'
+};
+
+const lightModeVars = {
+    '--body-bg': '#F8F8F2',
+    '--body-color': '#191F26',
+    '--link-color': '#005B96',
+    '--site-title-color': '#4C3B30',
+    '--heading-color': '#5A2C2A',
+    '--subtitle-color': '#626B8C'
+};
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
     unembedGoogleDocs();
-    document.getElementById('toggle-button')?.addEventListener('click', toggleDarkMode);
+    document.querySelector('.toggle-button').addEventListener('click', toggleDarkMode);
 });
-
 		</script>
 </body>
 

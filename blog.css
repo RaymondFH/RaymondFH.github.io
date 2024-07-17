@@ -191,9 +191,18 @@ color-palatte {
   color: #282A36;
 }
 
+/* gdoc theme */
 .embedded-doc {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--body-bg);
+  color: var(--body-color);
+}
+
+.embedded-doc a {
+  color: var(--link-color);
+}
+
+.embedded-doc h1, .embedded-doc h2, .embedded-doc h3, .embedded-doc h4, .embedded-doc h5 {
+  color: var(--heading-color);
 }
 
 /* Define CSS variables for dark mode */
