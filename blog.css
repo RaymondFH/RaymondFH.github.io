@@ -192,17 +192,49 @@ color-palatte {
 }
 
 /* gdoc theme */
+/* Add this to your existing CSS */
 .embedded-doc {
-  background-color: var(--body-bg);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
   color: var(--body-color);
+  background-color: var(--body-bg);
 }
 
-.embedded-doc a {
+.embedded-doc .gdoc-p {
+  margin-bottom: 1em;
+}
+
+.embedded-doc .gdoc-heading {
+  color: var(--heading-color);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.embedded-doc .gdoc-link {
   color: var(--link-color);
 }
 
-.embedded-doc h1, .embedded-doc h2, .embedded-doc h3, .embedded-doc h4, .embedded-doc h5 {
-  color: var(--heading-color);
+.embedded-doc .gdoc-li {
+  margin-bottom: 0.5em;
+}
+
+.embedded-doc .gdoc-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.embedded-doc .gdoc-table td,
+.embedded-doc .gdoc-table th {
+  border: 1px solid var(--body-color);
+  padding: 0.5em;
+}
+
+/* Ensure images fit within the container */
+.embedded-doc img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Define CSS variables for dark mode */
