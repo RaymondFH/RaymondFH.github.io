@@ -50,12 +50,6 @@ a, a:active, a:visited {
   color: #EFDDD3;
 }
 
-h1 {
-  /* font-family: Menlo, Monaco, 'Courier New', monospace; */
-  /* color: #FF79C6; */
-  margin-bottom: 0.25rem;
-  margin-top: 0rem;
-}
 
 h1 {
   font-size: 2rem;
@@ -68,7 +62,6 @@ h2 {
   color: #CF9185;
 
 }
-
 
 h3, h4, h5 { 
   /* color: #FF79C6; */
