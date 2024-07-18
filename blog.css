@@ -1,44 +1,11 @@
-h1 {
-  font-weight: 900;
-  font-size: 2rem;
-}
-
-h2 {
-  font-weight: 700;
-  font-size: 1.6rem;
-}
-
-h3, h4, h5 {
-  font-weight: 600;
-}
-
-body:not(.embedded-doc) {
-  /* Your existing body styles */
-  font-family: Roboto, sans-serif;
-  font-size: 1rem;
+body {
+  font-family: Roboto,sans-serif;
+  font-size:  1rem;
   max-width: 42rem;
   padding: 1rem;
   line-height: 1.5;
   margin: auto;
-  background-color: var(--body-bg);
-  color: var(--body-color);
-  transition: background-color 0.3s, color 0.3s;
 }
-
-body:not(.embedded-doc) h1,
-body:not(.embedded-doc) h2,
-body:not(.embedded-doc) h3,
-body:not(.embedded-doc) h4,
-body:not(.embedded-doc) h5 {
-  font-weight: bold !important;
-  color: var(--heading-color) !important;
-}
-
-body:not(.embedded-doc) h1 { font-size: 2rem !important; }
-body:not(.embedded-doc) h2 { font-size: 1.6rem !important; }
-body:not(.embedded-doc) h3 { font-size: 1.4rem !important; }
-body:not(.embedded-doc) h4 { font-size: 1.2rem !important; }
-body:not(.embedded-doc) h5 { font-size: 1.1rem !important; }
 
 body .embedded-doc .doc-content {
   margin-top: 1rem;
@@ -49,6 +16,7 @@ body .embedded-doc .doc-content {
 
 #dotplanContainer {
   padding: 1px;
+  /* margin-left: -15px; */
 }
 
 .dotplanIsLoading {
@@ -60,6 +28,11 @@ body .embedded-doc .doc-content {
   background: #44475A75;
 }
 
+body {
+  background: #191F26;
+  color:      #F8F8F2;
+}
+
 pre {
   background-color: #3c3836;
   padding: 1em;
@@ -67,38 +40,52 @@ pre {
 }
 
 a, a:active, a:visited {
-  color: var(--link-color);
+  color: #69a6e0;
+  /* font-family: Menlo, Monaco, 'Courier New', monospace; */
+  /* background-color: #1d2021; */
 }
 
 .site-title > a {
   text-decoration: none;
-  color: var(--site-title-color);
+  color: #EFDDD3;
+}
+
+h1 {
+  /* font-family: Menlo, Monaco, 'Courier New', monospace; */
+  /* color: #FF79C6; */
+  margin-bottom: 0.25rem;
+  margin-top: 0rem;
 }
 
 h1 {
   font-size: 2rem;
   margin-bottom: 0.25rem;
   margin-top: 0rem;
-  color: var(--heading-color);
 }
 
 h2 {
   font-size: 1.6rem;
-  color: var(--heading-color);
+  color: #CF9185;
+
 }
 
-h3, h4, h5 {
+
+h3, h4, h5 { 
+  /* color: #FF79C6; */
+  /* font-family: Menlo, Monaco, 'Courier New', monospace; */
   margin-bottom: .25rem;
-  color: var(--heading-color);
+  color: #CF9185;
 }
 
 blockquote {
-  border-left: 1px solid var(--heading-color);
+  border-left: 1px solid #CF9185;
   margin: 20px 10px;
   padding: 0px 10px;
+  /* color: #BD93F9; */
 }
 
-.meta {
+.meta { 
+  /* font-family: Menlo, Monaco, 'Courier New', monospace; */
   margin-bottom: .25rem;
   color: #a8b2cf;
 }
@@ -120,6 +107,7 @@ ul.flat li {
 
 .header nav ul.flat li {
   display: inline-block;
+  /* list-style: none; */
   margin-left: 0;
   margin-right: 10px;
   margin-top: 10px;
@@ -130,8 +118,8 @@ ul.flat li {
   justify-content: space-between;
 }
 
-.site-description > h2 {
-  margin: 0;
+.site-description > h2 { 
+  margin: 0
 }
 
 .header .site-description nav {
@@ -146,19 +134,19 @@ ul.flat li {
   max-height: 15px;
 }
 
-.fluff-miscellanea {
+.fluff-miscellanea { 
   font-size: 12px;
 }
 
-.fluff-miscellanea span a {
+.fluff-miscellanea span a { 
   padding-right: 5px;
 }
 
-.header {
+.header { 
   margin-bottom: 0.3rem;
 }
 
-.post {
+.post { 
   margin-top: 0.5rem;
 }
 
@@ -166,169 +154,23 @@ ul.flat li {
   font-size: 0;
 }
 
-.subtitle {
+.subtitle { 
   font-size: 15px;
   font-weight: 400;
   margin-bottom: 1rem;
   text-align: center;
-  color: var(--subtitle-color);
+  color: #9099b6;
   display: block;
   width: 100%;
-  margin: auto;
+  margin:auto;
   max-width: 100%;
 }
 
-.subscribe-beg > a {
-  color: var(--link-color);
+.subscribe-beg > a{ 
+  color: #69a6e0;
 }
 
 img {
   width: 100%;
   height: 100%;
-}
-
-color-palatte {
-  color: #282A36;
-}
-
-/* gdoc theme */
-/* Add this to your existing CSS */
-.embedded-doc {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: var(--body-color);
-  background-color: var(--body-bg);
-}
-
-.embedded-doc .gdoc-p {
-  margin-bottom: 1em;
-}
-
-.embedded-doc .gdoc-heading {
-  color: var(--heading-color);
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-}
-
-.embedded-doc .gdoc-link {
-  color: var(--link-color);
-}
-
-.embedded-doc .gdoc-li {
-  margin-bottom: 0.5em;
-}
-
-.embedded-doc .gdoc-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-.embedded-doc .gdoc-table td,
-.embedded-doc .gdoc-table th {
-  border: 1px solid var(--body-color);
-  padding: 0.5em;
-}
-
-/* Ensure images fit within the container */
-.embedded-doc img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Define CSS variables for dark mode */
-:root {
-  --body-bg: #191F26;
-  --body-color: #F8F8F2;
-  --link-color: #69a6e0;
-  --site-title-color: #EFDDD3;
-  --heading-color: #CF9185;
-  --subtitle-color: #9099b6;
-}
-
-/* Light mode styles */
-body.light-mode {
-  --body-bg: #F8F8F2;
-  --body-color: #191F26;
-  --link-color: #005B96;
-  --site-title-color: #4C3B30;
-  --heading-color: #5A2C2A;
-  --subtitle-color: #626B8C;
-}
-
-
-/* dark/light button */
-.toggle-button,
-.toggle-button *,
-.toggle-button :after,
-.toggle-button :before,
-.toggle-button:after,
-.toggle-button:before {
-  border: 0 solid;
-  box-sizing: border-box;
-  border-radius: 15%;
-}
-.toggle-button {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
-  background-color: #F8F8F2;
-  background-image: none;
-  color: #191F26;
-  cursor: pointer;
-  
-  font-size: 100%;
-  line-height: 1.5;
-  margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-  padding: 0;
-}
-.toggle-button:disabled {
-  cursor: default;
-}
-.toggle-button:-moz-focusring {
-  outline: auto;
-}
-.toggle-button svg {
-  display: block;
-  vertical-align: middle;
-}
-.toggle-button [hidden] {
-  display: none;
-}
-.toggle-button {
-  border: 1px solid;
-  box-sizing: border-box;
-  display: block;
-  font-weight: 900;
-  overflow: hidden;
-  padding: 1rem 2.5rem;
-  position: relative;
-  text-transform: uppercase;
-}
-.toggle-button .new,
-.toggle-button .old {
-  transition: transform 0.2s;
-}
-.toggle-button .old {
-  display: grid;
-  inset: 0;
-  place-content: center;
-  position: absolute;
-}
-.toggle-button:hover .old {
-  transform: translateY(100%);
-}
-.toggle-button .new {
-  background: #191F26;
-  color: #F8F8F2;
-  display: grid;
-  inset: 0;
-  place-content: center;
-  pointer-events: none;
-  position: absolute;
-  transform: translateX(-100%);
-}
-.toggle-button:hover .new {
-  transform: translateX(0);
 }
