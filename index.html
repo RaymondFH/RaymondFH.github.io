@@ -7,13 +7,12 @@
 	<title>cool guy site</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:title" content="raymond" />
-	<!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300"
-		rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300"
+		rel="stylesheet">
 	<link rel="icon" type="image/x-icon" href="resources/coolguy.png">
 	<link rel="stylesheet" type="text/css" media="screen" href="blog.css" />
 
 	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-	
 </head>
 
 <body>
@@ -43,13 +42,8 @@
 					<li>
 						<a href="flappyCool/flappy.html">gamers click here</a>
 					</li>
-
-					<li>
-						
-					</li>
 					
 				</ul>
-				
 			</nav>
 		</div>
 		<div>
@@ -79,67 +73,77 @@
 
 
 		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-            feather.replace();
+			feather.replace()
 
-            // START INJECTION PRANK
-            function removeSecretClass() {
-                const divs = document.querySelectorAll('#secret');
-                divs.forEach(div => {
-                    if (div.classList.contains('secret')) {
-                        div.classList.remove('secret');
-                    } else {
-                        div.classList.add('secret');
-                    }
-                });
-            }
+			// START INJECTION PRANK
+			function removeSecretClass() {
+				// select all the div elements on the page
+				const divs = document.querySelectorAll('#secret');
 
-            // START GDOCS UNEMBEDDING SCRIPT
-            var iframes = document.getElementsByTagName("iframe");
-            for (let i = 0; i < iframes.length; i++) {
-                var url = iframes[i].getAttribute("src");
-                console.log({ url });
-                if (url.startsWith("https://docs.google.com/document/d/")) {
-                    let d = document.createElement('div');
-                    d.classList.add("embedded-doc");
+				// loop through each div and remove the "secret" class
+				divs.forEach(div => {
+					if (div.classList.contains('secret')) {
+						div.classList.remove('secret');
+					} else {
+						div.classList.add('secret');
+					}
+				});
+			}
 
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('GET', url, true);
-                    xhr.onload = function () {
-                        d.innerHTML = xhr.responseText;
+			// START GDOCS UNEMBEDDING SCRIPT
+			var iframes = document.getElementsByTagName("iframe");
+			for (let i = 0; i < iframes.length; i++) {
+				var url = iframes[i].getAttribute("src");
+				console.log({ url });
+				if (url.startsWith("https://docs.google.com/document/d/")) {
+					// create div and replace iframe
+					let d = document.createElement('div');
+					d.classList.add("embedded-doc"); // optional
 
-                        let scriptChildren = d.querySelectorAll('script');
-                        scriptChildren.forEach(script => {
-                            script.parentNode.removeChild(script);
-                        });
+					// CORS request
+					var xhr = new XMLHttpRequest();
+					xhr.open('GET', url, true);
+					xhr.onload = function () {
+						// display response
+						// console.log(xhr.responseText);
+						d.innerHTML = xhr.responseText;
 
-                        let styleChildren = d.querySelectorAll('style');
-                        styleChildren.forEach(style => {
-                            const cssString = style.innerText;
-                            const modifiedCss = cssString.replace(/\}/g, '}.embedded-doc ');
-                            const lineSpacingFix = modifiedCss.replace(/\line-height/g, 'foo');
-                            style.innerHTML = lineSpacingFix;
-                        });
+						let scriptChildren = d.querySelectorAll('script');
+						scriptChildren.forEach(script => {
+							script.parentNode.removeChild(script);
+						});
 
-                        let subElements = d.querySelectorAll('*');
-                        subElements.forEach(element => {
-                            element.style.maxWidth = '100%';
-                            element.style.removeProperty('height');
+						let styleChildren = d.querySelectorAll('style');
+						styleChildren.forEach(style => {
+							const cssString = style.innerText;
+							const modifiedCss = cssString.replace(/\}/g, '}.embedded-doc ');
+							const lineSpacingFix = modifiedCss.replace(/\line-height/g, 'foo');
+							style.innerHTML = lineSpacingFix;
+						});
 
-                            if (element.tagName.toLowerCase() !== 'li') {
-                                element.style.overflow = 'hidden';
-                            }
-                        });
+						// Add max-width: 100% to all sub-elements of 'd'
+						let subElements = d.querySelectorAll('*');
+						subElements.forEach(element => {
+							element.style.maxWidth = '100%';
+							element.style.removeProperty('height');
 
-                        iframes[i].parentElement.replaceChild(d, iframes[i]);
+							if (element.tagName.toLowerCase() !== 'li') {
+								element.style.overflow = 'hidden';
+							}
+						});
 
-                        const element = document.getElementById("dotplanContainer");
-                        element.classList.remove("dotplanIsLoading");
-                    };
-                    xhr.send();
-                }
-            }
-        });
+						iframes[i].parentElement.replaceChild(d, iframes[i]);
+
+						// Find the HTML element by its ID
+						const element = document.getElementById("dotplanContainer");
+
+						// Remove the class from the HTML element
+						element.classList.remove("dotplanIsLoading");
+					};
+					xhr.send();
+				}
+			}
+
 		</script>
 </body>
 
