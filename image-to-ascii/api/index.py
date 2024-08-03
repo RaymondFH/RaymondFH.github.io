@@ -3,8 +3,10 @@ from PIL import Image
 import numpy as np
 import os
 import io
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
 
@@ -22,7 +24,7 @@ def grayify(image):
 def pixels_to_ascii(image):
     pixels = np.array(image)
     ascii_str = ""
-    for pixel_value in pixels:
+    for pixel_value in pixels.flatten():
         ascii_str += ASCII_CHARS[pixel_value // 25]
     return ascii_str
 
@@ -45,7 +47,7 @@ def convert_image_to_ascii(image_path):
     
     return ascii_img
 
-@app.route('/upload', methods=['POST'])
+@app.route('/api/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
         return "No file part"
@@ -68,5 +70,6 @@ def upload_file():
         )
         return response
 
-if __name__ == "__main__":
-    app.run()
+@app.route('/api/health', methods=['GET'])
+def health_check():
+    return "OK", 200
