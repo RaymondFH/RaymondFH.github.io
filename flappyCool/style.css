@@ -4,37 +4,32 @@
 }
 
 #game {
-    width: 400px;
-    height: 500px;
+    width: 100vw;
+    height: 100vh;
+    max-width: 400px;
+    max-height: 500px;
     border: 1px solid black;
     margin: auto;
     overflow: hidden;
-    min-width: 80%;
-    min-height: 100%;
+    position: relative;
 }
 
-#block {
+#block, #hole {
     width: 50px;
     height: 500px;
-    background-color: black;
-    position: relative;
-    left: 400px;
+    position: absolute;
+    right: -50px;
     animation: block 2s infinite linear;
-}
-
-@keyframes block {
-    0% { left: 400px; }
-    100% { left: -50px; }
 }
 
 #hole {
-    width: 50px;
     height: 150px;
     background-color: white;
-    position: relative;
-    left: 400px;
-    top: -500px;
-    animation: block 2s infinite linear;
+}
+
+@keyframes block {
+    0% { right: -50px; }
+    100% { right: 100%; }
 }
 
 #character {
