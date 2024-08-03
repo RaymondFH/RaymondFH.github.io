@@ -3,41 +3,52 @@
     margin: 0;
 }
 
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 #game {
     width: 100vw;
     height: 100vh;
-    max-width: 400px;
-    max-height: 500px;
-    border: 1px solid black;
-    margin: auto;
+    border: none;
+    margin: 0;
     overflow: hidden;
     position: relative;
+    background-color: #87CEEB; /* Sky blue background */
 }
 
 #block, #hole {
-    width: 50px;
-    height: 500px;
+    width: 10vw;
     position: absolute;
-    right: -50px;
+    right: -10vw;
     animation: block 2s infinite linear;
 }
 
+#block {
+    height: 100vh;
+    background-color: green; /* Make the blocks look like pipes */
+}
+
 #hole {
-    height: 150px;
-    background-color: white;
+    height: 30vh;
+    background-color: #87CEEB; /* Sky blue to match the background */
 }
 
 @keyframes block {
-    0% { right: -50px; }
-    100% { right: 100%; }
+    0% { right: -10vw; }
+    100% { right: 100vw; }
 }
 
 #character {
-    width: 30px;
-    height: 30px;
+    width: 3vw;
+    height: 3vw;
     position: absolute;
-    top: 100px;
-    /* Removing background color and border-radius to show the image */
+    top: 20vh;
+    left: 20vw;
     background-color: transparent;
     border-radius: 0;
 }
@@ -45,4 +56,5 @@
 #character img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
