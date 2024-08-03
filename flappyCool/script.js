@@ -20,10 +20,10 @@ var gameLoop = setInterval(function(){
     var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
     var holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
-    var characterBottom = characterTop + (3 * gameHeight / 100); // Assuming character height is 3vh
+    var characterBottom = characterTop + (3 * gameHeight / 100);
 
     if(jumping == 0){
-        character.style.top = (characterTop + gameHeight / 200) + "px";
+        character.style.top = (characterTop + gameHeight / 150) + "px";
     }
 
     if((characterTop > gameHeight * 0.97) || 
@@ -34,13 +34,13 @@ var gameLoop = setInterval(function(){
 },10);
 
 function jump(){
-    if (!gameActive) return;
+    if (!gameActive || jumping) return;
     jumping = 1;
     let jumpCount = 0;
     var jumpInterval = setInterval(function(){
         var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
         if((characterTop > gameHeight * 0.01) && (jumpCount < 15)){
-            character.style.top = (characterTop - gameHeight / 100) + "px";
+            character.style.top = (characterTop - gameHeight / 150) + "px";
         }
         if(jumpCount > 20){
             clearInterval(jumpInterval);
@@ -66,19 +66,24 @@ function restartGame() {
     document.getElementById('scoreModal').style.display = 'none';
     block.style.animationPlayState = 'running';
     hole.style.animationPlayState = 'running';
+    block.style.left = '400px';  // Reset block position
+    hole.style.left = '400px';   // Reset hole position
 }
 
-document.getElementById('restartButton').addEventListener('click', restartGame);
+document.getElementById('restartButton').addEventListener('click', function(e) {
+    e.stopPropagation();  // Prevent event from bubbling up
+    restartGame();
+});
 
 // Event listener for jump (can be triggered by click or touch)
 document.addEventListener('click', function(e) {
-    if (e.target.id !== 'restartButton') {
+    if (gameActive && e.target.id !== 'restartButton') {
         jump();
     }
 });
 
 document.addEventListener('touchstart', function(e) {
-    if (e.target.id !== 'restartButton') {
+    if (gameActive && e.target.id !== 'restartButton') {
         e.preventDefault();  // Prevent default touch behavior
         jump();
     }
