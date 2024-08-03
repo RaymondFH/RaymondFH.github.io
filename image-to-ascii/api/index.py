@@ -1,9 +1,9 @@
 from flask import Flask, request, send_file
+from flask_cors import CORS
 from PIL import Image
 import numpy as np
 import os
 import io
-from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
@@ -50,17 +50,17 @@ def convert_image_to_ascii(image_path):
 @app.route('/api/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
-        return "No file part"
+        return "No file part", 400
     file = request.files['file']
     if file.filename == '':
-        return "No selected file"
+        return "No selected file", 400
     if file:
         filepath = os.path.join("/tmp", file.filename)
         file.save(filepath)
         ascii_art = convert_image_to_ascii(filepath)
         os.remove(filepath)
         if ascii_art is None:
-            return "Error converting image to ASCII"
+            return "Error converting image to ASCII", 500
         
         response = send_file(
             io.BytesIO(ascii_art.encode('utf-8')),
@@ -73,3 +73,6 @@ def upload_file():
 @app.route('/api/health', methods=['GET'])
 def health_check():
     return "OK", 200
+
+if __name__ == "__main__":
+    app.run(debug=True)
