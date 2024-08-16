@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #192026;
+}
+
+h1 {
+    color: #EFDDD3;
+}
+
+h3 {
+    color: #b77f74;
+}
+
+.editor-container {
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 3%;
+}
+
+.toolbar {
+    margin-bottom: 10px;
+}
+
+.toolbar button {
+    margin: 5px 5px 5px 0px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #b77f74;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+.toolbar button:hover {
+    background-color: #cf9185;
+}
+
+#editor {
+    height: 300px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+.buttons button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: none;
+    background-color: #5483af;
+    color: #fff;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #69a6e0;
+}
+
+#colorPicker {
+    margin-right: 8px;
+    padding: 1px;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+}
+
+#undo {
+    background-color: #192026;
+}
+
+input[type="file"] {
+    display: none; /* Hide the actual file input */
+}
+
+label[for="fileInput"] {
+    padding: 5px 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: none;
+    background-color: #192026;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+}
+
+label[for="fileInput"]:hover {
+    background-color: #2e3a45;
+}
+
+

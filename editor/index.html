@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit/Or</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div>
+        <h1>Edit/or</h1>
+        <h3>the coolest .txt editor online</h3>
+        <div class="editor-container">
+            <div class="toolbar">
+                <input type="color" id="colorPicker" title="Choose your color">
+                <button onclick="execCmd('bold')"><b>Bold</b></button>
+                <button onclick="execCmd('italic')"><em>Italic</em></button>
+                <button onclick="execCmd('underline')"><u>Underline</u></button>
+                <button onclick="execCmd('strikeThrough')"><s>StrikeThrough</s></button>
+                <button onclick="execCmd('insertOrderedList')">1. Ordered List</button>
+                <button onclick="execCmd('insertUnorderedList')">&#x2022 Unordered List</button>
+                <button onclick="execCmd('undo')" id="undo">&#8592 Undo</button>
+                <button onclick="execCmd('redo')" id="undo">Redo &#8594</button>
+                <button onclick="execCmd('justifyLeft')">Align Left</button>
+                <button onclick="execCmd('justifyCenter')">Align Center</button>
+                <button onclick="execCmd('justifyRight')">Align Right</button>
+                <button onclick="execCmd('insertImage', prompt('Enter the image URL', ''))">Insert Image</button>
+                <button onclick="execCmd('createLink', prompt('Enter the URL', 'http://'))">Insert Link</button>
+                
+            </div>
+            <div id="editor" contenteditable="true"></div>
+            <div class="buttons">
+                <button onclick="downloadTxt()">Save as .txt</button>
+                <label for="fileInput">Load .txt</label>
+                <input type="file" id="fileInput" accept=".txt" onchange="loadTxt()" title="Load .txt">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
